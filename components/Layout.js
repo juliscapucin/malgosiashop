@@ -2,6 +2,8 @@ import Link from "next/link";
 import Head from "next/head";
 import Image from "next/image";
 
+// import logo from "../public/logo.svg";
+
 export default function Layout({ children }, props) {
   const { title, description, keywords } = props;
   return (
@@ -17,14 +19,15 @@ export default function Layout({ children }, props) {
           <Link href='/'>
             <div className='logo'>
               <a>
-                <Image
-                  src='/../public/logo.svg'
+                <img src='/logo.svg' alt='logo' />
+                {/* <Image
+                  src='/logo.svg'
                   alt='Malgosia logo'
                   layout='fill'
                   objectFit='cover'
                   objectPosition='center center'
                   priority
-                />
+                /> */}
               </a>
             </div>
           </Link>
