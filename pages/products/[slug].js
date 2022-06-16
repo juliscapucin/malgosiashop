@@ -78,7 +78,6 @@ export default function ProductDetails({ product }) {
             {documentToReactComponents(description)}
           </div>
           <div className='product-info'>
-            <p>Ships in {shipping} working days</p>
             <h4>Measurements</h4>
             <ul className='measurements'>
               {dimensions.map((item, index) => {
@@ -89,6 +88,11 @@ export default function ProductDetails({ product }) {
                 );
               })}
             </ul>
+            <div className='shipping'>
+              <p>
+                <strong>Ships in {shipping} working days</strong>
+              </p>
+            </div>
           </div>
         </section>
       </main>
@@ -119,6 +123,9 @@ export default function ProductDetails({ product }) {
         }
         .product-text {
           padding-right: 2rem;
+        }
+        .shipping {
+          margin: 2rem 0;
         }
       `}</style>
     </Layout>
