@@ -1,7 +1,34 @@
-export default function Recipes() {
+import { createClient } from "contentful";
+import ProductCard from "../components/ProductCard";
+
+export async function getStaticProps() {
+  const client = createClient({
+    space: process.env.CONTENTFUL_SPACE_ID,
+    accessToken: process.env.CONTENTFUL_ACCESS_KEY,
+  });
+
+  const res = await client.getEntries({ content_type: "product" });
+
+  return {
+    props: { products: res.items },
+  };
+}
+
+export default function Products({ products }) {
   return (
-    <div className="recipe-list">
-      Recipe List
-    </div>
-  )
+    <main className='product-list-container'>
+      <div className='product-list'>
+        {products.map((product) => {
+          return <ProductCard key={product.sys.id} {...product.fields} />;
+        })}
+      </div>
+      <style jsx>{`
+        .product-list {
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr;
+          gap: 1rem;
+        }
+      `}</style>
+    </main>
+  );
 }

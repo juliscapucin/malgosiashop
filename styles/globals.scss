@@ -1,0 +1,138 @@
+/*
+=============
+IMPORTS
+=============
+*/
+
+@import url("https://use.typekit.net/cbg5juo.css");
+
+@import "./variables";
+
+/*
+=============== 
+GLOBAL STYLES
+===============
+*/
+
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: $font-primary, sans-serif;
+  background-color: $clr-white;
+  color: $clr-black;
+  line-height: 1.5;
+  font-size: 0.875rem;
+}
+ul {
+  list-style-type: none;
+}
+li {
+  margin: 0.5rem 0;
+}
+a {
+  text-decoration: none;
+  color: $clr-black;
+  transition: $transition;
+}
+a:hover {
+  color: $clr-grey;
+  transition: $transition;
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: $font-primary, sans-serif;
+  font-weight: 200;
+  letter-spacing: $spacing;
+  text-transform: capitalize;
+  line-height: 0.8;
+  margin-bottom: 0.75rem;
+}
+h1 {
+  font-size: clamp(2.5rem, 6vw, 6rem);
+  font-weight: 500;
+}
+h2 {
+  font-size: clamp(2rem, 4vw, 4rem);
+}
+h3 {
+  font-size: clamp(1.5rem, 2.5vw, 2.3rem);
+}
+h4 {
+  font-size: clamp(1.2rem, 2vw, 2rem);
+  margin-top: 3rem;
+}
+h5 {
+  font-size: clamp(1rem, 1.5vw, 1.8rem);
+}
+p {
+  font-family: $font-primary, sans-serif;
+  font-size: clamp(0.9rem, 1.1vw, 1.2rem);
+  font-weight: 200;
+  margin-bottom: 1.25rem;
+}
+
+/*
+=============
+LAYOUT
+=============
+*/
+
+header {
+  width: 95vw;
+  max-width: $max-width;
+  margin: 1rem auto 0 auto;
+}
+
+.logo {
+  position: relative;
+  width: 4rem;
+  height: 4rem;
+  transition: $transition;
+}
+.logo:hover {
+  transform: scale(1.1);
+  transition: $transition;
+}
+
+.layout {
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+}
+footer {
+  background: $clr-black;
+  color: $clr-white;
+  padding: 1rem;
+  text-align: center;
+  display: grid;
+  place-items: center;
+  margin-top: auto;
+  p {
+    margin: 0;
+  }
+  a {
+    color: $clr-white;
+  }
+}
+.page-content {
+  max-width: $max-width;
+  margin: 20px auto 80px;
+  width: 90%;
+}
+
+/*
+
+*/
+
+// .product-list-container {
+//   border: 0.002rem solid black;
+// }
