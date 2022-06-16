@@ -5,9 +5,9 @@ export default function ProductCard({ title, slug, shipping, thumbnail }) {
   return (
     <article className='card'>
       <div className='thumb-container-outer'>
-        <div className='thumb-container'>
-          <Link href={`/products/${slug}`}>
-            <a>
+        <Link href={`/products/${slug}`}>
+          <a>
+            <div className='thumb-container'>
               <Image
                 src={`https:${thumbnail.fields.file.url}`}
                 className='thumb-img'
@@ -17,9 +17,9 @@ export default function ProductCard({ title, slug, shipping, thumbnail }) {
                 objectPosition='center center'
                 priority
               />
-            </a>
-          </Link>
-        </div>
+            </div>
+          </a>
+        </Link>
       </div>
       <div className='content'>
         <div className='info'>

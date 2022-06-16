@@ -1,4 +1,5 @@
 import { createClient } from "contentful";
+import Layout from "../components/Layout";
 import ProductCard from "../components/ProductCard";
 
 export async function getStaticProps() {
@@ -16,12 +17,14 @@ export async function getStaticProps() {
 
 export default function Products({ products }) {
   return (
-    <main className='product-list-container'>
-      <div className='product-list'>
-        {products.map((product) => {
-          return <ProductCard key={product.sys.id} {...product.fields} />;
-        })}
-      </div>
+    <Layout>
+      <main className='product-list-container'>
+        <div className='product-list'>
+          {products.map((product) => {
+            return <ProductCard key={product.sys.id} {...product.fields} />;
+          })}
+        </div>
+      </main>
       <style jsx>{`
         .product-list {
           display: grid;
@@ -29,6 +32,6 @@ export default function Products({ products }) {
           gap: 1rem;
         }
       `}</style>
-    </main>
+    </Layout>
   );
 }

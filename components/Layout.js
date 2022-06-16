@@ -1,13 +1,31 @@
+import { motion } from "framer-motion";
+
 import Link from "next/link";
 import Head from "next/head";
 import Image from "next/image";
 
-// import logo from "../public/logo.svg";
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { duration: 0.6, staggerChildren: 0.2 },
+  },
+  exit: {
+    opacity: 0,
+    transition: { duration: 0.6, staggerChildren: 0.2 },
+  },
+};
 
 export default function Layout({ children }, props) {
   const { title, description, keywords } = props;
   return (
-    <>
+    <motion.div
+      variants={containerVariants}
+      initial='hidden'
+      animate='visible'
+      exit='exit'
+      key='child'
+    >
       <Head>
         <title>{title}</title>
         <meta name='description' content={description} />
@@ -20,14 +38,6 @@ export default function Layout({ children }, props) {
             <div className='logo'>
               <a>
                 <img src='/logo.svg' alt='logo' />
-                {/* <Image
-                  src='/logo.svg'
-                  alt='Malgosia logo'
-                  layout='fill'
-                  objectFit='cover'
-                  objectPosition='center center'
-                  priority
-                /> */}
               </a>
             </div>
           </Link>
@@ -41,7 +51,7 @@ export default function Layout({ children }, props) {
           </a>
         </footer>
       </div>
-    </>
+    </motion.div>
   );
 }
 
