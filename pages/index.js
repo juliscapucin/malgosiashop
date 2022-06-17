@@ -28,8 +28,8 @@ export default function Products({ products }) {
       <style jsx>{`
         .product-list {
           display: grid;
-          grid-template-columns: 1fr 1fr 1fr;
-          gap: 1rem;
+          grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+          grid-gap: 1rem;
         }
       `}</style>
     </Layout>

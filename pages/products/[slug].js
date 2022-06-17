@@ -1,5 +1,6 @@
 import { createClient } from "contentful";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import { useMediaQuery } from "react-responsive";
 import Image from "next/image";
 
 import Layout from "../../components/Layout";
@@ -43,9 +44,17 @@ export default function ProductDetails({ product }) {
     description,
   } = product.fields;
 
+  const isDesktopOrLaptop = useMediaQuery({
+    query: "(min-width: 800px)",
+  });
+
   return (
     <Layout>
-      <main className='product-container'>
+      <main
+        className={`${
+          isDesktopOrLaptop ? "product-container desktop" : "product-container"
+        }`}
+      >
         <section className='featured-images'>
           <div className='featured-img-container'>
             <Image
@@ -99,10 +108,13 @@ export default function ProductDetails({ product }) {
       <style jsx>{`
         .product-container {
           display: grid;
-          grid-template-columns: 2fr 1fr;
-          grid-gap: 3rem;
+          grid-template-columns: 1fr;
+          // grid-gap: 1rem;
           background-color: white;
           border: 0.001rem solid #e7e5e4;
+        }
+        .product-container.desktop {
+          grid-template-columns: 2fr 1fr;
         }
         .featured-images {
           position: relative;
@@ -122,7 +134,7 @@ export default function ProductDetails({ product }) {
           margin: 4rem 0 2rem 0;
         }
         .product-text {
-          padding-right: 2rem;
+          padding: 2rem;
         }
         .shipping {
           margin: 2rem 0;
