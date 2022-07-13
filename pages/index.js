@@ -25,13 +25,6 @@ export default function Products({ products }) {
           })}
         </div>
       </main>
-      <style jsx>{`
-        .product-list {
-          display: grid;
-          grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-          grid-gap: 1rem;
-        }
-      `}</style>
     </Layout>
   );
 }

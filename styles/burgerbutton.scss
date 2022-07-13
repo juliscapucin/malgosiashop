@@ -1,0 +1,38 @@
+.menu__btn__container {
+  height: 2.5rem;
+  width: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  .menu__btn__line {
+    width: 100%;
+    height: 0.2rem;
+    margin: 0.2rem 0;
+    background-color: $clr-black;
+  }
+
+  &.active {
+    .menu__btn__line {
+      background-color: $clr-white;
+    }
+
+    > :nth-child(1) {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    > :nth-child(2) {
+      display: none;
+    }
+
+    > :nth-child(3) {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(-45deg);
+    }
+  }
+}

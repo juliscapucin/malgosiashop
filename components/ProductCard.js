@@ -25,7 +25,7 @@ export default function ProductCard({ title, slug, shipping, thumbnail }) {
         <div className='info'>
           <Link href={`/products/${slug}`}>
             <a>
-              <h4>{title}</h4>
+              <h3>{title}</h3>
             </a>
           </Link>
           <p>Ships in {shipping} working days</p>
@@ -36,31 +36,6 @@ export default function ProductCard({ title, slug, shipping, thumbnail }) {
           </Link>
         </div>
       </div>
-      <style jsx>{`
-        .card {
-          background-color: white;
-          border: 0.001rem solid #e7e5e4;
-          padding: 1rem;
-        }
-        .thumb-container-outer {
-          width: 100%;
-          height: 20rem;
-          overflow: hidden;
-        }
-        .thumb-container {
-          position: relative;
-          width: 100%;
-          height: 100%;
-          transition: all 0.3s linear;
-        }
-        .thumb-container:hover {
-          transform: scale(1.08);
-          transition: all 0.3s linear;
-        }
-        .content {
-          padding: 0 0.5rem;
-        }
-      `}</style>
     </article>
   );
 }

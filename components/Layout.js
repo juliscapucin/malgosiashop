@@ -1,8 +1,9 @@
 import { motion } from "framer-motion";
 
-import Link from "next/link";
 import Head from "next/head";
 import Image from "next/image";
+
+import Header from "./Header";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -33,24 +34,9 @@ export default function Layout({ children }, props) {
         <meta name='viewport' content='width=device-width, initial-scale=1.0' />
       </Head>
 
+      <Header />
       <div className='layout'>
-        <header>
-          <Link href='/'>
-            <div className='logo'>
-              <a>
-                <img src='/logo.svg' alt='logo' />
-              </a>
-            </div>
-          </Link>
-        </header>
-
         <div className='page-content'>{children}</div>
-
-        <footer>
-          <a href='https://juliscapucin.com/' target='_blank'>
-            <p>Copyright 2022 Juli Scapucin</p>
-          </a>
-        </footer>
       </div>
     </motion.div>
   );

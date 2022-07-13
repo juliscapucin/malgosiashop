@@ -1,0 +1,16 @@
+footer {
+  width: 100vw;
+  background: $clr-black;
+  color: $clr-white;
+  padding: 1rem;
+  text-align: center;
+  display: grid;
+  place-items: center;
+  margin: auto;
+  p {
+    margin: 0;
+  }
+  a {
+    color: $clr-white;
+  }
+}

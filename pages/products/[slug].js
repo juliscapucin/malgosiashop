@@ -44,17 +44,9 @@ export default function ProductDetails({ product }) {
     description,
   } = product.fields;
 
-  const isDesktopOrLaptop = useMediaQuery({
-    query: "(min-width: 800px)",
-  });
-
   return (
     <Layout>
-      <main
-        className={`${
-          isDesktopOrLaptop ? "product-container desktop" : "product-container"
-        }`}
-      >
+      <main className='product-container'>
         <section className='featured-images'>
           <div className='featured-img-container'>
             <Image
@@ -105,41 +97,6 @@ export default function ProductDetails({ product }) {
           </div>
         </section>
       </main>
-      <style jsx>{`
-        .product-container {
-          display: grid;
-          grid-template-columns: 1fr;
-          // grid-gap: 1rem;
-          background-color: white;
-          border: 0.001rem solid #e7e5e4;
-        }
-        .product-container.desktop {
-          grid-template-columns: 2fr 1fr;
-        }
-        .featured-images {
-          position: relative;
-          display: flex;
-          flex-direction: column;
-          gap: 1px;
-          border-right: 0.001rem solid #e7e5e4;
-        }
-        .featured-img-container {
-          position: relative;
-          width: 100%;
-          height: 40rem;
-          display: flex;
-          flex-direction: column;
-        }
-        .product-title {
-          margin: 4rem 0 2rem 0;
-        }
-        .product-text {
-          padding: 2rem;
-        }
-        .shipping {
-          margin: 2rem 0;
-        }
-      `}</style>
     </Layout>
   );
 }
